@@ -1,0 +1,9 @@
+jsonschema==3.0.2
+jupyter-client==5.3.1
+jupyter-core==4.5.0
+jupyterlab==1.1.1
+jupyterlab-server==1.0.6
+nltk==3.4.5
+numpy==1.17.1
+scikit-learn==0.21.3
+spacy==2.1.8
