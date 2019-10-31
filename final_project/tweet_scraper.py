@@ -46,7 +46,7 @@ class TwitterBot:
 
     def search(self, target, since='2019-08-1', until=None, limit=100):
         ''' Collect all the tweets with the keyword
-        target, in the range self.date[0] -
+        target
         '''
 
         cursor = tweepy.Cursor(
@@ -64,11 +64,14 @@ class TwitterBot:
             if tweet.full_text not in seen:
                 try:
                     favs = tweet.retweeted_status.favorite_count
+                    text = tweet.retweeted_status.full_text
                 except AttributeError:
                     favs = 0
+                    text = tweet.full_text
+
                 self.tweets[target].append({
                                             'created_at': tweet.created_at, 
-                                            'tweet': tweet.full_text,
+                                            'tweet': text,
                                             'retweet_count': tweet.retweet_count,
                                             'source': tweet.source,
                                             'favorite_count': favs,
